@@ -3,17 +3,14 @@ from bs4 import BeautifulSoup
 from dotenv import load_dotenv
 from playwright.async_api import async_playwright
 from pathlib import Path
-from excel import create_main_sheet2, create_equipement_sheet2, init_excel, save_excel
+from excel import create_main_sheet, create_equipement_sheet, init_excel, save_excel
 
 load_dotenv()
 
 pathfile = Path(__file__).parent / "webscraping"
 
 
-url = "https://d-bk.net/fr/dw/25Ca"
-
-
-async def run(pw):
+async def run(pw, url):
     print("Connecting to Browser API...")
     browser = await pw.chromium.launch(headless=True)
     try:
@@ -63,15 +60,20 @@ def scrap(html):
             data_equipements[nom_item].append((nom_compo, qty_compo))
 
     wb, ws, base_path, fileresult = init_excel()
-    create_main_sheet2(ws, data_main)
-    create_equipement_sheet2(wb, data_equipements)
+    create_main_sheet(ws, data_main)
+    create_equipement_sheet(wb, data_equipements)
 
     save_excel(wb, fileresult)
 
 
 async def main():
+    url= ''
+    while not url:
+        url = input("Entrez l'url de votre atelier dofusbook (ex: https://www.dofusbook.net/fr/membre/012345-db/atelier) : \n")
+        if not url:
+            print("URL cannot be empty. Please try again.")
     async with async_playwright() as playwright:
-        html = await run(playwright)
+        html = await run(playwright, url)
         scrap(html)
 
 

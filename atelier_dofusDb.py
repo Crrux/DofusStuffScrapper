@@ -1,6 +1,6 @@
 from bs4 import BeautifulSoup
 import excel
-from excel import create_main_sheet2, create_equipement_sheet2, init_excel, save_excel
+from excel import create_main_sheet, create_equipement_sheet, init_excel, save_excel
 
 
 def create_equipement_sheet(wb, equipement):
@@ -38,8 +38,8 @@ def main():
             qty_compo = int(qty_compo.text.strip()) if qty_compo else 1
 
             data_equipements[nom_equipement].append((nom_compo, qty_compo))
-    create_main_sheet2(ws, data_main)
-    create_equipement_sheet2(wb, data_equipements)
+    create_main_sheet(ws, data_main)
+    create_equipement_sheet(wb, data_equipements)
     save_excel(wb, fileresult)
 
 

@@ -4,7 +4,7 @@ from pathlib import Path
 import sys
 
 
-def create_main_sheet2(ws, items):
+def create_main_sheet(ws, items):
     """Create the main sheet with items and their details."""
     ws.append(
         [
@@ -55,7 +55,7 @@ def create_main_sheet2(ws, items):
     ws.add_table(tab)
 
 
-def create_equipement_sheet2(wb, data_equipements):
+def create_equipement_sheet(wb, data_equipements):
     """Create sheets for each equipment with its components."""
     for nom_equipement, compos in data_equipements.items():
         ws_equip = wb.create_sheet(title=nom_equipement)
@@ -89,8 +89,12 @@ def create_equipement_sheet2(wb, data_equipements):
 
 
 def init_excel():
-    # filename = input("Entrez le nom du fichier excel de destination : ").strip()
-    filename = "resultat_Atelier_DofusDB"
+    filename= ''
+    while not filename:
+        filename = input("Entrez le nom du fichier excel de destination : ").strip()
+        if not filename:
+            print("Le nom du fichier ne peut pas être vide. Veuillez réessayer.")
+
     base_path = (
         Path(sys.executable).parent
         if getattr(sys, "frozen", False)
