@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CopilotDiffPersistence">
+    <option name="pendingDiffs">
+      <map>
+        <entry key="$PROJECT_DIR$/README.md">
+          <value>
+            <PendingDiffInfo>
+              <option name="filePath" value="$PROJECT_DIR$/README.md" />
+              <option name="updatedContent" value="# DofusStuffScrapper&#10;&#10;Ce projet permet de récupérer automatiquement des données depuis les sites **dofusdb** et **dofusbook** afin de compiler les composants de craft des items dans un fichier Excel.&#10;&#10;## Fonctionnalités&#10;- Scraping des informations d'items et de recettes depuis dofusdb et dofusbook&#10;- Génération d'un fichier Excel listant les composants nécessaires pour crafter chaque item&#10;&#10;## Prérequis&#10;- Python 3.10 ou supérieur&#10;- Les dépendances listées dans `requirements.txt`&#10;&#10;## Installation&#10;1. Clonez ce dépôt :&#10;   ```bash&#10;   git clone &lt;url-du-repo&gt;&#10;   ```&#10;2. Installez les dépendances :&#10;   ```bash&#10;   pip install -r requirements.txt&#10;   ```&#10;&#10;## Utilisation&#10;Lancez le script principal pour générer le fichier Excel :&#10;```bash&#10;python DofusStuffScrapper.py&#10;```&#10;&#10;Un fichier Excel sera généré avec la liste des items et leurs composants de craft.&#10;&#10;## Remarques&#10;- Le projet utilise des modules comme `bs4` (BeautifulSoup) pour le scraping web.&#10;- Si vous utilisez la version .exe, assurez-vous que toutes les dépendances sont bien incluses.&#10;&#10;## Auteurs&#10;- Projet réalisé par [Votre Nom]&#10;" />
+            </PendingDiffInfo>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
