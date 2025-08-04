@@ -30,7 +30,7 @@ class Equipement:
                             qty_compo = int(compo[1])
                         except ValueError:
                             raise TypeError("La quantité doit être un entier ou convertible en entier.")
-                    self.compos.append({nom_compo: int(qty_compo)})
+                    self.compos.append((nom_compo, int(qty_compo)))
             else:
                 raise ValueError("Composant doit être un tuple de (nom, quantité).")
         except Exception as e:
@@ -39,7 +39,7 @@ class Equipement:
 
 
     def __repr__(self):
-        return f"Equipement(nom={self.nom}, compos={self.compos})"
+        return f"Equipement(nom={self.name}, compos={self.compos})"
 
 if __name__ == '__main__':
     equip = Equipement("Epée de feu")

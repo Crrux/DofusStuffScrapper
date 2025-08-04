@@ -15,9 +15,9 @@ class TestItem(unittest.TestCase):
     # test cases for the add_compos method
     def test_add_component(self):
         self.equipement.add_compos(("Fer", 50))
-        self.assertEqual(self.equipement.compos, [{"Fer": 50}])
+        self.assertEqual(self.equipement.compos, [("Fer", 50)])
         self.equipement.add_compos(("bois", '10'))
-        self.assertEqual(self.equipement.compos, [{"Fer": 50}, {"bois": 10}])
+        self.assertEqual(self.equipement.compos, [("Fer", 50), ("bois", 10)])
 
 
 
